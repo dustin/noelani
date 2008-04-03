@@ -1,7 +1,7 @@
 class ThankyouController < ApplicationController
 
   def index
-    # Just render
+    subtitle 'Thanks!'
   end
 
 end

@@ -1,10 +1,10 @@
 class DonationController < ApplicationController
 
   def index
-    # Just render
+    subtitle 'Donate'
   end
 
   def success
-    # Just render (though a mail would be nice)
+    subtitle 'Donation Successful'
   end
 end

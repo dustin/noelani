@@ -1,7 +1,7 @@
 class EndorsementsController < ApplicationController
   
   def index
-    # Just render
+    subtitle 'Endorsements'
   end
 
 end

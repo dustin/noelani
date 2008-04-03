@@ -1,7 +1,7 @@
 class NewsController < ApplicationController
 
   def index
-    # Just render
+    subtitle 'News'
   end
 
 end

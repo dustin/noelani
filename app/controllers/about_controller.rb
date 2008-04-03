@@ -1,7 +1,7 @@
 class AboutController < ApplicationController
 
   def index
-    # Just render
+    subtitle 'About'
   end
 
 end

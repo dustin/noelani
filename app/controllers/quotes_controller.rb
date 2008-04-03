@@ -1,7 +1,7 @@
 class QuotesController < ApplicationController
 
   def index
-    # Just render
+    subtitle 'Quotes'
   end
 
 end

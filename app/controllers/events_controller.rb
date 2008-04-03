@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-    # Just render
+    subtitle 'Events'
   end
 
 end

@@ -1,7 +1,7 @@
 class QualificationsController < ApplicationController
 
   def index
-    # Just render
+    subtitle 'Qualifications'
   end
 
 end
