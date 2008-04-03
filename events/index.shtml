@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+	Copyright (c) 1999-2006  Noelani Sallings <noelani@sallings.org>
+-->
+<html>
+	<head>
+		<link rel="stylesheet" href="../style.css" />
+		<title>
+			Events  -- Noelani Sallings for School Board
+		</title>
+	</head>
+	<body>
+		<!--#include virtual="../navbar.shtml"-->
+		<div id="maincontent">
+			<h1>Events</h1>
+		
+			
+			<h2>
+				Saturday, October 14, 2006 - 	Reception for Santa Clara School Board Candidate Noelani Sallings
+			</h2>
+			<p>	
+				Host: Jamie McLeod, Clare Callejon, Vanessa Cooper and Alison Coy<br />
+				Location: 763 Malarin Ave., Santa Clara, CA<br />
+				When: Saturday, October 14, 2:30pm<br />
+				Phone: 408-246-2357<br />
+			</p>
+			<p>
+				You are invited to attend a Meet the Candidate Reception for:<br />
+				Noelani Sallings, Santa Clara Unified School Board Candidate<br />
+			</p>
+			<p>
+				Saturday, October 14<br />
+				2:30 pm- 4:30 pm<br />
+			</p>
+			<p>
+				At the home of Alison Coy<br />
+				763 Malarin Ave<br />
+				Santa Clara 95050<br />
+			</p>
+			<p>
+				Snacks and Drinks will be served.
+			</p>
+			<p>
+				Please join us to find out more about this exciting candidate who will bring a fresh new perspective to the Santa Clara School Board!
+			</p>
+			
+		</div>
+		<!--#include virtual="/footer.shtml"-->
+	</body>
+</html>
