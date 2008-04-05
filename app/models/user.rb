@@ -1,3 +1,19 @@
+# == Schema Information
+# Schema version: 1
+#
+# Table name: users
+#
+#  id                        :integer         not null, primary key
+#  login                     :string(255)     
+#  email                     :string(255)     
+#  crypted_password          :string(40)      
+#  salt                      :string(40)      
+#  remember_token            :string(255)     
+#  remember_token_expires_at :datetime        
+#  created_at                :datetime        
+#  updated_at                :datetime        
+#
+
 require 'digest/sha1'
 class User < ActiveRecord::Base
   # Virtual attribute for the unencrypted password
