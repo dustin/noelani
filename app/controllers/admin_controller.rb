@@ -26,4 +26,11 @@ class AdminController < ApplicationController
       redirect_to :action => :blog
     end
   end
+
+  protected
+
+  def authorized?
+    logged_in? && %w(noelani dustin).include?(current_user.login)
+  end
+
 end
