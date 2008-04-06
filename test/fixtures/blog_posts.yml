@@ -1,0 +1,39 @@
+# == Schema Information
+# Schema version: 2
+#
+# Table name: blog_posts
+#
+#  id         :integer         not null, primary key
+#  title      :string(255)     not null
+#  content    :string(255)     not null
+#  author_id  :integer         not null
+#  released   :boolean         
+#  created_at :datetime        
+#  updated_at :datetime        
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: This is the First Test
+  content: Just another test blog.
+  author: quentin
+  released: true
+  created_at: <%= 5.minutes.ago.to_s(:db) %>
+  updated_at: <%= 5.minutes.ago.to_s(:db) %>
+
+two:
+  title: This is the Second Test
+  content: Just yet another test blog.
+  author: quentin
+  released: true
+  created_at: <%= 5.days.ago.to_s(:db) %>
+  updated_at: <%= 5.days.ago.to_s(:db) %>
+
+unreleased:
+  title: This is an Unreleased Blog Post
+  content: You can't see me.
+  author: quentin
+  released: false
+  created_at: <%= 5.seconds.ago.to_s(:db) %>
+  updated_at: <%= 5.seconds.ago.to_s(:db) %>
