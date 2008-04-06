@@ -21,6 +21,7 @@ depend :remote, :gem, "SyslogLogger", ">= 1.4"
 depend :remote, :gem, "memcache-client", ">= 1.5"
 depend :remote, :gem, "sqlite3-ruby", "> 1.2"
 depend :remote, :gem, "god", "> 0.7"
+depend :remote, :gem, "BlueCloth", ">= 1.0.0"
 
 desc "Starting and stopping via god."
 deploy.task :start do
