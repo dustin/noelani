@@ -1,0 +1,26 @@
+<h1>Editing a Blog Post</h1>
+
+<p>
+	Note:  Use <a href="http://daringfireball.net/projects/markdown/basics">markdown</a>
+	syntax for the post.
+</p>
+
+<% form_for :blog_post do |f| %>
+	<fieldset>
+		<div>
+			<label for="blog_post_title">Title</label>
+			<%= f.text_field :title %>
+		</div>
+		<div>
+			<label for="blog_post_content">Body</label>
+			<%= f.text_area :content %>
+		</div>
+		<div>
+			<label for="blog_post_released">Released?</label>
+			<%= f.check_box :released %>
+		</div>
+		<div>
+			<%= f.submit %>
+		</div>
+	</fieldset>
+<% end %>

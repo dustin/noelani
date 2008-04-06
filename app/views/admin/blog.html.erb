@@ -1,0 +1,13 @@
+<h1>Blog Entries</h1>
+
+<p>
+	<%= link_to 'New!', :action => :edit_post %>
+</p>
+
+<ul class="posts">
+	<% @posts.each do |post| %>
+		<li class="<%= post.released? ? 'released' : 'notreleased' %>">
+			<%= link_to post.title, :action => :edit_post, :id => post.id %> @ <%= post.created_at %>
+		</li>
+	<% end %>
+</ul>

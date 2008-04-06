@@ -151,3 +151,7 @@ ul.endorsement {
 ul.endorsement li {
   text-indent: 0;
 }
+
+.notreleased {
+    text-decoration: line-through;
+}
