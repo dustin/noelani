@@ -155,3 +155,7 @@ ul.endorsement li {
 .notreleased {
     text-decoration: line-through;
 }
+
+.blog_post .when {
+   font-size: x-small;
+}

@@ -1,0 +1,10 @@
+<h1>Blog</h1>
+
+<% @blog_posts.each do |post| %>
+	<div class="blog_post">
+		<h2 class="<%= post.released? ? 'released' : 'notreleased' %>"><%= post.title %></h2>
+		<div class="content"><%= auto_link(markdown(post.content)) %></div>
+		<div class="when">Posted <%= post.updated_at %></div>
+		<hr/>
+	</div>
+<% end %>

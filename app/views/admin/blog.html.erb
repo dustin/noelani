@@ -1,9 +1,12 @@
 <h1>Blog Entries</h1>
 
-<p>
-	<%= link_to 'New!', :action => :edit_post %>
-</p>
+<h2>Actions</h2>
+<ul>
+	<li><%= link_to 'Create a New Entry', :action => :edit_post %></li>
+	<li><%= link_to 'See Recent', :controller => '/blog', :action => :unreleased %></li>
+</ul>
 
+<h2>Posts</h2>
 <ul class="posts">
 	<% @posts.each do |post| %>
 		<li class="<%= post.released? ? 'released' : 'notreleased' %>">

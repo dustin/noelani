@@ -3,6 +3,8 @@ class AdminController < ApplicationController
 
   before_filter :login_required
 
+  cache_sweeper :blog_post_sweeper, :only => [ :edit_post ]
+
   def index
     # show a template
   end
