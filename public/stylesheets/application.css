@@ -156,6 +156,11 @@ ul.endorsement li {
     text-decoration: line-through;
 }
 
+img.sig {
+	margin: 0;
+	padding: 0;
+}
+
 .blog_post .when {
    font-size: x-small;
 }
