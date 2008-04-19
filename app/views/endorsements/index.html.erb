@@ -5,7 +5,12 @@
 <dl>
   <% @electeds.endorsements.each do |e| %>
     <dt><%= e.name %></dt>
-    <dd><%= e.title %><sup>&dagger;</sup></dd>
+    <dd>
+      <% e.title.split(/\r?\n/).each_with_index do |line, index| %>
+      <% if index > 0 %><br/><% end %>
+      <%= line %><sup>&dagger;</sup>
+      <% end %>
+    </dd>
   <% end %>
 </dl>
 
