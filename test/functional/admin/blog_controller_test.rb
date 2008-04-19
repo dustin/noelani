@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + '/../test_helper'
+require File.dirname(__FILE__) + '/../../test_helper'
 
-class AdminControllerTest < ActionController::TestCase
+class Admin::BlogControllerTest < ActionController::TestCase
 
   include AuthenticatedTestHelper
 
@@ -22,19 +22,19 @@ class AdminControllerTest < ActionController::TestCase
   end
 
   def test_blog_unauthenticated
-    get :blog
+    get :index
     assert_redirected_to login_path
   end
 
   def test_blog_unauthorized
     login_as :quentin
-    get :blog
+    get :index
     assert_redirected_to login_path
   end
 
   def test_blog_authorized
     login_as :noelani
-    get :blog
+    get :index
     assert_response :success
     assert_equal 3, assigns(:posts).size
   end
@@ -57,7 +57,7 @@ class AdminControllerTest < ActionController::TestCase
     login_as :noelani
     post :edit_post, :id => blog_posts(:one).id.to_s,
       :blog_post => { :title => 'New Title', :content => 'New Content' }
-    assert_redirected_to :action => :blog
+    assert_redirected_to :action => :index
     bp = blog_posts(:one).reload
     assert_equal bp, assigns(:blog_post)
     assert_equal 'New Title', bp.title
