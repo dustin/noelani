@@ -6,8 +6,16 @@ class EndorsementListTest < ActiveSupport::TestCase
     assert_equal endorsements(:cheney, :bush), endorsement_lists(:electeds).endorsements
   end
 
+  def test_elected_finder
+    assert_equal endorsement_lists(:electeds), EndorsementList.electeds
+  end
+
   def test_individuals_list
     assert_equal endorsements(:mom, :dad), endorsement_lists(:individuals).endorsements
+  end
+
+  def test_leaders_finder
+    assert_equal endorsement_lists(:individuals), EndorsementList.leaders
   end
 
   def test_mom_getting_tired

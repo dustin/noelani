@@ -13,4 +13,12 @@ class EndorsementList < ActiveRecord::Base
 
   has_many :endorsements, :order => 'position'
 
+  def self.electeds
+    find_by_title 'Elected Officials'
+  end
+
+  def self.leaders
+    find_by_title 'Community Leaders'
+  end
+
 end
