@@ -3,49 +3,18 @@
 <h2>Elected Officials</h2>
 
 <dl>
-  <dt>Elaine Alquist</dt>
-  <dd>California State Senator, District 13<sup>&dagger;</sup></dd>
-
-  <dt>Paul Perotti</dt>
-  <dd>Former Superintendent, Santa Clara Unified School District<sup>&dagger;</sup></dd>
-
-  <dt>Stephen D. Kay Ed.D.</dt>
-  <dd>
-    Former Franklin Mc Kinely Board of Education Trustee<sup>&dagger;</sup><br/>
-    Former Peterson Middle School and Scott Lane Principal<sup>&dagger;</sup><br/>
-    San Jose State University Professor<sup>&dagger;</sup>
-  </dd>
-
-  <dt>Jim Canova</dt>
-  <dd>Santa Clara Unified School District, Trustee<sup>&dagger;</sup></dd>
-
-  <dt>Jamie McLeod</dt>
-  <dd>Santa Clara City Councilwoman<sup>&dagger;</sup></dd>
-
-  <dt>Paul Fong</dt>
-  <dd>Foothill/De Anza Community College Board of Trustee<sup>&dagger;</sup></dd>
-
-  <dt>Otto Lee</dt>
-  <dd>Sunnyvale City Councilmember and former Mayor<sup>&dagger;</sup></dd>
-
-  <dt>Kansen Chu</dt>
-  <dd>San Jose City Councilmember<sup>&dagger;</sup></dd>
-
-  <dt>Madison Nguyen</dt>
-  <dd>San Jose City Councilwoman<sup>&dagger;</sup></dd>
-
-  <dt>Evan Low</dt>
-  <dd>Campbell City Councilmember<sup>&dagger;</sup></dd>
-
-  <dt>Ashu Kalra</dt>
-  <dd>San Jose Planning Commission Chair, Public Defender &amp; Law Professor<sup>&dagger;</sup></dd>
+  <% @electeds.endorsements.each do |e| %>
+    <dt><%= e.name %></dt>
+    <dd><%= e.title %><sup>&dagger;</sup></dd>
+  <% end %>
 </dl>
 
 <h2>Community Leaders</h2>
 
 <ul>
-  <li>Katie Ferrick</li>
-  <li>Linda Seifert</li>
+  <% @leaders.endorsements.each do |e| %>
+    <li><%= e.name %></li>
+  <% end %>
 </ul>
 
 <p>&dagger; Titles for identification purposes only</p>
