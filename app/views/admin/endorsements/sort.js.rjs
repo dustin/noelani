@@ -1,0 +1,1 @@
+page["endorsements_#{params[:id]}"].highlight
