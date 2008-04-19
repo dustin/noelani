@@ -1,0 +1,1 @@
+page["endorsement_#{@e.id}"].hide

@@ -7,7 +7,11 @@
 
   <ul id="endorsements_<%= el.id %>">
     <% el.endorsements.each do |e| %>
-      <li id="endorsement_<%= e.id %>"><%= e.name %> &mdash; <%= e.title %></li>
+      <li id="endorsement_<%= e.id %>">
+        <%= e.name %> &mdash; <%= e.title %>
+        <%= link_to_remote(tag("img", {:src => '/images/trash.gif', :class => 'trash', :alt => '[delete]'}),
+              :url => { :action => 'delete', :id => e.id, :format => 'js' }) %>
+      </li>
     <% end %>
   </ul>
 

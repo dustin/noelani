@@ -19,4 +19,9 @@ class Admin::EndorsementsController < AdminController
       e.save!
     end
   end
+
+  def delete
+    @e = Endorsement.find params[:id]
+    @e.destroy
+  end
 end
