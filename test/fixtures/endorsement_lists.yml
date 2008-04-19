@@ -1,0 +1,18 @@
+# == Schema Information
+# Schema version: 4
+#
+# Table name: endorsement_lists
+#
+#  id         :integer         not null, primary key
+#  title      :string(255)     not null
+#  created_at :datetime        
+#  updated_at :datetime        
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+electeds:
+  title: Elected Officials
+
+individuals:
+  title: Community Leaders

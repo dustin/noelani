@@ -1,0 +1,36 @@
+# == Schema Information
+# Schema version: 4
+#
+# Table name: endorsements
+#
+#  id                  :integer         not null, primary key
+#  endorsement_list_id :integer         not null
+#  name                :string(255)     not null
+#  title               :string(255)     not null
+#  position            :integer         
+#  created_at          :datetime        
+#  updated_at          :datetime        
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+mom:
+  endorsement_list: individuals
+  name: Mom
+  title: Mommy
+  position: 1
+dad:
+  endorsement_list: individuals
+  name: Dad
+  title: Daddy
+  position: 2
+bush:
+  endorsement_list: electeds
+  name: George W. Bush
+  title: POTUSA
+  position: 100
+cheney:
+  endorsement_list: electeds
+  name: Dickolas Cheney
+  title: Puppetmaster
+  position: 99
