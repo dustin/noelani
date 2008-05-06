@@ -1,0 +1,33 @@
+!!! XML
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
+  %head
+    %link{:rel => "stylesheet", :type => "text/css", :href => "/stylesheets/application.css"}/
+    %title= @page_title
+
+  / Copyright (c) 1999-2008  Noelani Sallings <noelani@sallings.org>
+
+  %body
+    #navbar.darkbox
+      #navbartitle Noelani Sallings
+      for Santa Clara Unified School District Board of Education
+
+      %ul
+        %li= link_to 'Home', home_path
+        %li= link_to 'Qualifications', :controller => '/qualifications'
+        %li= link_to 'Endorsements', :controller => '/endorsements'
+        %li= link_to 'Donate', :controller => '/donation'
+        %li= link_to 'Events', :controller => '/events'
+        %li= link_to 'News', :controller => '/news'
+        %li= link_to 'Thanks!', :controller => '/thankyou'
+
+    #maincontent= yield
+
+    %p#footer
+      Copyright &copy; 2006  Noelani Sallings FPPC #1302548.
+      Site designed, created and maintained by Noelani Sallings.
+
+    %script{:src => "http://www.google-analytics.com/urchin.js", :type => "text/javascript"}/
+    %script{:type => "text/javascript"}
+      _uacct = "UA-679821-1";
+      urchinTracker();
