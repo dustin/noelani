@@ -1,0 +1,16 @@
+%h1 Endorsements for 2008 Campaign
+
+%h2 Elected Officials
+
+%dl
+  - @electeds.endorsements.each do |e|
+    %dt= e.name
+    %dd= show_endorser_title(e.title)
+
+%h2 Community Leaders
+
+%ul
+  - @leaders.endorsements.each do |e|
+    %li= e.name
+
+%p &dagger; Titles for identification purposes only
