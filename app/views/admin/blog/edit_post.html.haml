@@ -1,0 +1,22 @@
+%h1 Editing a Blog Post
+
+%p
+  Note:  Use
+  <a href="http://daringfireball.net/projects/markdown/basics">markdown</a>
+  syntax for the post.
+
+- form_for :blog_post do |f|
+  %fieldset
+    %div
+      %label{:for => 'blog_post_title'} Title
+      = f.text_field :title
+
+    %div
+      %label{:for => 'blog_post_content'} Body
+      = f.text_area :content
+
+    %div
+      %label{:for => 'blog_post_released'} Released?
+      = f.check_box :released
+
+    %div= f.submit
