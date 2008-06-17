@@ -3,7 +3,7 @@ class Admin::EndorsementsController < AdminController
   cache_sweeper :endorsement_sweeper, :except => [ :index ]
 
   def index
-    @lists = EndorsementList.find :all
+    @lists = EndorsementList.all
   end
 
   def add

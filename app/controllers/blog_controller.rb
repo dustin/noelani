@@ -12,7 +12,7 @@ class BlogController < ApplicationController
 
   def unreleased
     subtitle "Blog - Unreleased for #{current_user.login}"
-    @blog_posts = BlogPost.find :all, :limit => 10
+    @blog_posts = BlogPost.recent
     render :action => :index
   end
   

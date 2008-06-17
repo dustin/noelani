@@ -3,7 +3,7 @@ class Admin::BlogController < AdminController
   cache_sweeper :blog_post_sweeper, :except => [ :index ]
 
   def index
-    @posts = BlogPost.find :all, :order => "created_at desc"
+    @posts = BlogPost.recent
   end
 
   def edit_post
