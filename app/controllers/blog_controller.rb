@@ -7,7 +7,7 @@ class BlogController < ApplicationController
 
   def index
     subtitle 'Blog'
-    @blog_posts = BlogPost.recent_visible
+    @blog_posts = BlogPost.recent.visible
   end
 
   def unreleased

@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 class BlogPostTest < ActiveSupport::TestCase
 
   def test_find_blog_posts
-    assert_equal [blog_posts(:one), blog_posts(:two)], BlogPost.recent_visible
+    assert_equal [blog_posts(:one), blog_posts(:two)], BlogPost.recent.visible
   end
 
   def test_author_assoc

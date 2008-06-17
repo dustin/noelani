@@ -16,9 +16,7 @@ class BlogPost < ActiveRecord::Base
 
   belongs_to :author, :class_name => "User"
 
-  def self.recent_visible(limit = 10)
-    find :all, :conditions => { :released => true },
-      :order => "created_at desc", :limit => limit
-  end
+  named_scope :visible, :conditions => { :released => true }
+  named_scope :recent, lambda { |*args| {:order => "created_at desc", :limit => (args.first || 10)} }
 
 end
