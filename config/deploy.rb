@@ -9,7 +9,7 @@ set :runner, 'www'
 set :deploy_to, "/data/web/rails/#{application}"
 
 set :scm, :git
-set :branch, "origin/master"
+set :branch, "master"
 set :deploy_via, :remote_cache
 
 role :app, "basket.west.spy.net"
