@@ -5,3 +5,42 @@ html
 
 body
   +blueprint
+
+!main_color= #606
+
+#navbar
+  :font-size large
+  :text-align center
+
+  #navbartitle
+    font-size larger
+    font-weight bolder
+
+  h1
+    :font-size large
+    :margin-left 1em
+    :color black
+
+  a:hover
+    :background inherit
+    :border-bottom= solid 2px !main_color
+
+  ul
+    :text-indent 0
+    :padding-left 0
+    :list-style none
+
+  li
+    :text-indent -3em
+    :display inline
+    :padding-left 7px
+    :border-left= solid 5px !main_color
+
+  ul li:first-child
+    :padding-left 0
+    :border-left none
+
+#footer
+  :font-size x-small
+  :border-top 1px solid black
+  :text-align center
