@@ -2,8 +2,11 @@
 !!!
 %html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
   %head
-    %link{:rel => "stylesheet", :type => "text/css", :href => "/stylesheets/application.css"}/
     %title= @page_title
+    = stylesheet_link_tag 'application.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'application-print.css', :media => 'print'
+    /[if IE]
+      = stylesheet_link_tag 'application-ie.css', :media => 'screen, projection'
 
   / Copyright (c) 1999-2008  Noelani Sallings <noelani@sallings.org>
 
