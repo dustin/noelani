@@ -1,0 +1,19 @@
+@import blueprint
+
+body
+  #wrap
+    +container
+    &.showgrid
+      :background url(../images/grid.png)
+    #header
+      +column(24, last)
+      :text-align center
+    #navigation
+      +column(6)
+    #content
+      +column(12)
+    #sidebar
+      +column(6, last)
+    #footer
+      +column(24, last)
+      :text-align center

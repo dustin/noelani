@@ -1,0 +1,22 @@
+@import blueprint
+
+html
+  +blueprint-reset-html
+
+body.bp
+  +blueprint
+
+  // This sets up a three column layout
+  // with a header and footer.
+  #main
+    +container
+    #header
+      +column(24, last)
+    #left-sidebar
+      +column(4)
+    #content
+      +column(16)
+    #right-sidebar
+      +column(4, last)
+    #footer
+      +column(24, last)
