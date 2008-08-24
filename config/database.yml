@@ -15,5 +15,5 @@ test:
 
 production:
   adapter: sqlite3
-  database: /data/web/rails/nsite/db/noelani.sqlite3
+  database: /home/nsite/db/noelani.sqlite3
   timeout: 5000
