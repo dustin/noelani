@@ -1,5 +1,8 @@
 @import blueprint
 
+!main_color= #606
+!noelani_color= #008c6a
+
 html
   +blueprint-reset-html
 
@@ -8,8 +11,19 @@ body
   :width 800px
   :font-family verdana
 
-!main_color= #606
-!noelani_color= #008c6a
+  p
+    :font-size 14px
+    :padding-left 1em
+    :padding-right 1em
+
+  p.sup-descr
+    :font-size smaller
+
+
+#portrait
+  :padding-left 5px
+  :padding-bottom 5px
+  :float right
 
 #navbar
   :font-size large

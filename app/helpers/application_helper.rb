@@ -2,7 +2,7 @@
 module ApplicationHelper
 
   def q_sans_whitespace(&block)
-    "<q>#{capture_haml(&block).strip}</q>"
+    "<q>“#{capture_haml(&block).strip}”</q>"
   end
 
 end
