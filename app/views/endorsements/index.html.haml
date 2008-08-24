@@ -10,8 +10,10 @@
 
 %h2 Community Leaders
 
-%ul
-  - @leaders.endorsements.each do |e|
-    %li= e.name
+%table.endorsements
+  - @leaders.endorsements.in_groups_of(3) do |parts|
+    %tr
+      - parts.each do |e|
+        %td.name= e.nil? ? '' : e.name
 
 %p.sup-descr &dagger; Titles for identification purposes only
