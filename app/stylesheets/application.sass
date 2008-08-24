@@ -31,6 +31,10 @@ body
     :font-size 24px
     +quiet
 
+  a
+    :text-decoration none
+    :color black
+
   h1
     :font-size large
     :margin-left 1em
@@ -41,6 +45,15 @@ body
     :border-bottom= solid 2px !main_color
 
   ul
+    :background url(/images/NavBar.png) no-repeat
+    :text-transform uppercase
+    :font-size 14px
+    :font-weight bold
+    :font-family tahoma
+    :padding-top 4px
+    :width 750px
+    :height 30px
+    :color black
     :text-indent 0
     :padding-left 0
     :list-style none
@@ -48,8 +61,7 @@ body
   li
     :text-indent -3em
     :display inline
-    :padding-left 7px
-    :border-left= solid 5px !main_color
+    :padding-left 15px
 
   ul li:first-child
     :padding-left 0
