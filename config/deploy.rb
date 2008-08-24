@@ -26,7 +26,6 @@ depend :remote, :gem, "haml", ">= 2.0"
 
 desc "Starting and stopping via god."
 deploy.task :start do
-  sudo "god load #{deploy_to}/current/config/god.config"
   sudo "god start #{application}"
 end
 
@@ -38,6 +37,5 @@ end
 desc "Starting and stopping via god."
 deploy.task :stop do
   sudo "god stop #{application}"
-  sudo "god remove #{application}"
 end
 
