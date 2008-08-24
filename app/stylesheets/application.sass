@@ -5,16 +5,31 @@ html
 
 body
   +blueprint
+  :width 800px
+  :font-family verdana
 
 !main_color= #606
+!noelani_color= #008c6a
 
 #navbar
   :font-size large
   :text-align center
 
   #navbartitle
-    font-size larger
-    font-weight bolder
+    :text-align left
+    :font-size 48px
+    :font-weight bolder
+    :border-bottom= solid 1px !quiet_color
+    :padding-left 10px
+    :color= !noelani_color
+    :font-style italic
+    :font-family times
+
+  #navbarsub
+    :text-align right
+    :padding-right 10px
+    :font-size 24px
+    +quiet
 
   h1
     :font-size large
