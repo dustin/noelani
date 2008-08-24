@@ -11,23 +11,24 @@
   / Copyright (c) 1999-2008  Noelani Sallings <noelani@sallings.org>
 
   %body
-    #navbar
-      #navbartitle Noelani Sallings
-      #navbarsub for SCUSD Board of Education
+    #container
+      #navbar
+        #navbartitle Noelani Sallings
+        #navbarsub for SCUSD Board of Education
 
-      %ul
-        %li= link_to 'Home', home_path
-        %li= link_to 'About', :controller => '/about'
-        %li= link_to 'Qualifications', :controller => '/qualifications'
-        %li= link_to 'Endorsements', :controller => '/endorsements'
-        %li= link_to 'Contribute', :controller => '/donation'
-        %li= link_to 'Blog', :controller => '/blog'
+        %ul
+          %li= link_to 'Home', home_path
+          %li= link_to 'About', :controller => '/about'
+          %li= link_to 'Qualifications', :controller => '/qualifications'
+          %li= link_to 'Endorsements', :controller => '/endorsements'
+          %li= link_to 'Contribute', :controller => '/donation'
+          %li= link_to 'Blog', :controller => '/blog'
 
-    #maincontent= yield
+      #maincontent= yield
 
-    #footer
-      Copyright &copy; 2006-2008  Noelani Sallings FPPC #1302548.
-      Site designed, created and maintained by Friends of Noelani Sallings.
+      #footer
+        Copyright &copy; 2006-2008  Noelani Sallings FPPC #1302548.
+        Site designed, created and maintained by Friends of Noelani Sallings.
 
     %script{:src => "http://www.google-analytics.com/urchin.js", :type => "text/javascript"}
     %script{:type => "text/javascript"}
