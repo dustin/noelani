@@ -1,20 +1,20 @@
 set :application, "nsite"
 set :repository,  "git@github.com:dustin/noelani.git"
 set :user, application
-set :runner, 'www'
+set :runner, application
 
 # If you aren't deploying to /u/apps/#{application} on the target
 # servers (which is the default), you can specify the actual location
 # via the :deploy_to variable:
-set :deploy_to, "/data/web/rails/#{application}"
+set :deploy_to, "/home/#{application}"
 
 set :scm, :git
 set :branch, "master"
 set :deploy_via, :remote_cache
 
-role :app, "basket.west.spy.net"
-role :web, "basket.west.spy.net"
-role :db,  "basket.west.spy.net", :primary => true
+role :app, "69.56.173.84"
+role :web, "69.56.173.84"
+role :db,  "69.56.173.84", :primary => true
 
 depend :remote, :command, "git"
 depend :remote, :gem, "SyslogLogger", ">= 1.4"
