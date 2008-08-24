@@ -17,12 +17,12 @@
 
       %ul
         %li= link_to 'Home', home_path
+        %li= link_to 'About', :controller => '/about'
         %li= link_to 'Qualifications', :controller => '/qualifications'
         %li= link_to 'Endorsements', :controller => '/endorsements'
-        %li= link_to 'Donate', :controller => '/donation'
+        %li= link_to 'Contribute', :controller => '/donation'
         %li= link_to 'Blog', :controller => '/blog'
-        %li= link_to 'News', :controller => '/news'
-        %li= link_to 'Thanks!', :controller => '/thankyou'
+        %li= link_to 'Gratitude', :controller => '/thankyou'
 
     #maincontent= yield
 
