@@ -1,5 +1,20 @@
 %img#portrait{:src => "/images/noelani-home.jpg", :alt => "Noelani Sallings"}
 
+#contact.vcard
+  %h2 Contact Me
+  = link_to 'Noelani Sallings', home_path, :class => 'url fn me'
+  %div
+    %a.email{:href => 'mailto:noelani@sallings.org'} noelani@sallings.org
+  .tel
+    %a.value{:href => 'tel:+1.408.490.0729'} 408.490.0729
+  .adr
+    .title Friends of Noelani Sallings
+    .street-address 465 N. Wolfe Rd.
+    =locality("Sunnyvale")
+    %abbr.region{:title => "California"} CA
+    %span.postal-code 94085
+    .country-name USA
+
 %p
   Education has always been the cornerstone of my life. I am a proud product of
   the south bay public education system and daughter is currently enrolled in
