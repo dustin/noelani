@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 4
+# Schema version: 20080924020354
 #
 # Table name: endorsements
 #
