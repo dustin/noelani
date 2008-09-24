@@ -3,7 +3,7 @@
 %p
   Note:  Use
   <a href="http://daringfireball.net/projects/markdown/basics">markdown</a>
-  syntax for the post.
+  syntax for the post (or select raw HTML if you know what you're doing).
 
 - form_for :blog_post do |f|
   %fieldset
@@ -14,6 +14,12 @@
     %div
       %label{:for => 'blog_post_content'} Body
       = f.text_area :content
+
+    %div
+      %label{:form => 'blog_post_format'} Format
+      %select{:id => 'blog_post_format', :name => 'blog_post[format]'}
+        %option{:value => 'markdown'} Markdown
+        %option{:value => 'html'} HTML
 
     %div
       %label{:for => 'blog_post_released'} Released?
