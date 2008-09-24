@@ -1,7 +1,7 @@
 module AnnotateModels
   class << self
     MODEL_DIR   = "app/models"
-    FIXTURE_DIR = "test/fixtures"
+    FIXTURE_DIRS = ["test/fixtures","spec/fixtures"]
     PREFIX = "== Schema Information"
 
     # Simple quoting for the default column value
@@ -39,25 +39,55 @@ module AnnotateModels
         else
           col_type << "(#{col.limit})" if col.limit
         end
-        info << sprintf("#  %-#{max_size}.#{max_size}s:%-15.15s %s\n", col.name, col_type, attrs.join(", "))
+        info << sprintf("#  %-#{max_size}.#{max_size}s:%-15.15s %s", col.name, col_type, attrs.join(", ")).rstrip + "\n"
       end
 
       info << "#\n\n"
     end
 
     # Add a schema block to a file. If the file already contains
-    # a schema info block (a comment starting
-    # with "Schema as of ..."), remove it first.
+    # a schema info block (a comment starting with "== Schema Information"), check if it
+    # matches the block that is already there. If so, leave it be. If not, remove the old
+    # info block and write a new one.
+    # Returns true or false depending on whether the file was modified.
+    #
+    # === Options (opts)
+    #  :position<Symbol>:: where to place the annotated section in fixture or model file, 
+    #                      "before" or "after". Default is "before".
+    #  :position_in_class<Symbol>:: where to place the annotated section in model file
+    #  :position_in_fixture<Symbol>:: where to place the annotated section in fixture file
+    #
+    def annotate_one_file(file_name, info_block, options={})
+      if File.exist?(file_name)
+        old_content = File.read(file_name)
 
-    def annotate_one_file(file_name, info_block)
+        # Ignore the Schema version line because it changes with each migration
+        header = Regexp.new(/(^# Table name:.*?\n(#.*\n)*\n)/)
+        old_header = old_content.match(header).to_s
+        new_header = info_block.match(header).to_s
+        
+        if old_header == new_header
+          false
+        else
+          # Remove old schema info
+          old_content.sub!(/^# #{PREFIX}.*?\n(#.*\n)*\n/, '')
+
+          # Write it back
+          new_content = options[:position] == "after" ? (old_content + "\n" + info_block) : (info_block + old_content)
+
+          File.open(file_name, "w") { |f| f.puts new_content }
+          true
+        end
+      end
+    end
+    
+    def remove_annotation_of_file(file_name)
       if File.exist?(file_name)
         content = File.read(file_name)
 
-        # Remove old schema info
         content.sub!(/^# #{PREFIX}.*?\n(#.*\n)*\n/, '')
-
-        # Write it back
-        File.open(file_name, "w") { |f| f.puts info_block + content }
+        
+        File.open(file_name, "w") { |f| f.puts content }
       end
     end
 
@@ -65,15 +95,23 @@ module AnnotateModels
     # info block (basically a comment containing information
     # on the columns and their types) and put it at the front
     # of the model and fixture source files.
+    # Returns true or false depending on whether the source
+    # files were modified.
 
-    def annotate(klass, file, header)
+    def annotate(klass, file, header,options={})
       info = get_schema_info(klass, header)
+      annotated = false
 
       model_file_name = File.join(MODEL_DIR, file)
-      annotate_one_file(model_file_name, info)
+      if annotate_one_file(model_file_name, info, options.merge(:position=>(options[:position_in_class] || options[:position])))
+        annotated = true
+      end
 
-      fixture_file_name = File.join(FIXTURE_DIR, klass.table_name + ".yml")
-      annotate_one_file(fixture_file_name, info)
+      FIXTURE_DIRS.each do |dir|
+        fixture_file_name = File.join(dir,klass.table_name + ".yml")
+        annotate_one_file(fixture_file_name, info, options.merge(:position=>(options[:position_in_fixture] || options[:position]))) if File.exist?(fixture_file_name)
+      end
+      annotated
     end
 
     # Return a list of the model files to annotate. If we have
@@ -84,7 +122,7 @@ module AnnotateModels
     def get_model_files
       models = ARGV.dup
       models.shift
-
+      models.reject!{|m| m.starts_with?("position=")}
       if models.empty?
         Dir.chdir(MODEL_DIR) do
           models = Dir["**/*.rb"]
@@ -110,7 +148,7 @@ module AnnotateModels
     # ActiveRecord models. If we can find the class, and
     # if its a subclass of ActiveRecord::Base,
     # then pas it to the associated block
-    def do_annotations
+    def do_annotations(options={})
       header = PREFIX.dup
       version = ActiveRecord::Migrator.current_version rescue 0
       if version > 0
@@ -122,14 +160,42 @@ module AnnotateModels
         begin
           klass = get_model_class(file)
           if klass < ActiveRecord::Base && !klass.abstract_class?
-            annotated << klass
-            annotate(klass, file, header)
+            if annotate(klass, file, header,options)
+              annotated << klass
+            end
           end
         rescue Exception => e
           puts "Unable to annotate #{file}: #{e.message}"
         end
       end
-      puts "Annotated #{annotated.join(', ')}"
+      if annotated.empty?
+        puts "Nothing annotated!"
+      else
+        puts "Annotated #{annotated.join(', ')}"
+      end
+    end
+    
+    def remove_annotations
+      deannotated = []
+      get_model_files.each do |file|
+        begin
+          klass = get_model_class(file)
+          if klass < ActiveRecord::Base && !klass.abstract_class?
+            deannotated << klass
+            
+            model_file_name = File.join(MODEL_DIR, file)
+            remove_annotation_of_file(model_file_name)
+            
+            FIXTURE_DIRS.each do |dir|
+              fixture_file_name = File.join(dir,klass.table_name + ".yml")
+              remove_annotation_of_file(fixture_file_name) if File.exist?(fixture_file_name)
+            end
+          end
+        rescue Exception => e
+          puts "Unable to annotate #{file}: #{e.message}"
+        end
+      end
+      puts "Removed annotation from: #{deannotated.join(', ')}"
     end
   end
 end
