@@ -11,7 +11,12 @@ class BlogController < ApplicationController
   end
 
   def show
-    @post = BlogPost.visible.find_by_url_name(params[:id])
+    @post = BlogPost.find_by_url_name(params[:id])
+    if @post
+      render
+    else
+      render :text => "No such blog post", :status => 404
+    end
   end
 
   def unreleased
