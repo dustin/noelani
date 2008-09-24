@@ -4,6 +4,7 @@ class BlogController < ApplicationController
   helper ::ActionView::Helpers::TextHelper
 
   before_filter :login_required, :only => [ :unreleased ]
+  caches_page :show
 
   def index
     subtitle 'Blog'
