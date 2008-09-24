@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080924020354
+# Schema version: 20080924031342
 #
 # Table name: blog_posts
 #
@@ -7,10 +7,11 @@
 #  title      :string(255)     not null
 #  content    :string(255)     not null
 #  author_id  :integer         not null
-#  released   :boolean         
-#  created_at :datetime        
-#  updated_at :datetime        
+#  released   :boolean
+#  created_at :datetime
+#  updated_at :datetime
 #  url_name   :string(255)
+#  format     :string(255)
 #
 
 class BlogPost < ActiveRecord::Base

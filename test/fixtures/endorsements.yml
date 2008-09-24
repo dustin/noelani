@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080924020354
+# Schema version: 20080924031342
 #
 # Table name: endorsements
 #
@@ -7,9 +7,9 @@
 #  endorsement_list_id :integer         not null
 #  name                :string(255)     not null
 #  title               :string(255)     not null
-#  position            :integer         
-#  created_at          :datetime        
-#  updated_at          :datetime        
+#  position            :integer
+#  created_at          :datetime
+#  updated_at          :datetime
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
