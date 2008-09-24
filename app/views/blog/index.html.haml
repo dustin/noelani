@@ -1,3 +1,6 @@
+- content_for :more_head do
+  %link{:rel => 'alternate', :type => 'application/rss+xml', :title => "Posts RSS", :href => formatted_blog_index_path(:rss)}
+
 - @blog_posts.each do |post|
   .blog_post
     %h2{:class => post.released? ? 'released' : 'notreleased' }= post.title
