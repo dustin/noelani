@@ -12,7 +12,7 @@ xml.rss "version" => "2.0" do
       xml.item do
         xml.link blog_url(item)
         xml.title item.title
-        xml.description(post.format == 'markdown' ? auto_link(markdown(post.content)) : post.content)
+        xml.description(render_post(post))
         xml.pubDate item.created_at.rfc822
         xml.guid blog_url(item)
       end
