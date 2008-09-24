@@ -6,7 +6,7 @@
     %h2{:class => post.released? ? 'released' : 'notreleased' }
       = link_to post.title, blog_path(post)
     .content
-      = auto_link(markdown(post.content))
+      = post.format == 'markdown' ? auto_link(markdown(post.content)) : post.content
     .when
       Posted
       = post.updated_at
