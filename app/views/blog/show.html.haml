@@ -1,8 +1,9 @@
-.blog_post
-  %h2{:class => @post.released? ? 'released' : 'notreleased' }= @post.title
-  .content= render_post(@post)
-  .when
+.blog_post.hentry.item
+  %h2{:class => (@post.released? ? 'released' : 'notreleased') + ' entry-title' }
+    = link_to(@post.title, blog_path(@post), :rel => 'bookmark')
+  .entry-content= render_post(@post)
+  %abbr.published{:title => @post.updated_at.to_s(:hatom)}
     Posted
-    = @post.updated_at
+    = @post.updated_at.to_s(:item_day)
   =render :partial => 'comments'
 %hr
