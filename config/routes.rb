@@ -35,6 +35,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.login '/login', :controller => 'sessions', :action => 'new'
 
+  map.recent_blog '/blog/unreleased', :controller => 'blog', :action => 'unreleased'
   map.resources :blog
 
   # Install the default routes as the lowest priority.
