@@ -14,6 +14,8 @@
 
 class BlogPost < ActiveRecord::Base
 
+  acts_as_url_param
+
   belongs_to :author, :class_name => "User"
 
   named_scope :visible, :conditions => { :released => true }
