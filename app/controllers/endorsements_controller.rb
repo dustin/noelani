@@ -4,6 +4,7 @@ class EndorsementsController < ApplicationController
     subtitle 'Endorsements'
     @electeds = EndorsementList.electeds
     @leaders = EndorsementList.leaders
+    @organizations = EndorsementList.organizations
   end
 
 end

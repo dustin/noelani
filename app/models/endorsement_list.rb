@@ -21,4 +21,8 @@ class EndorsementList < ActiveRecord::Base
     find_by_title 'Community Leaders'
   end
 
+  def self.organizations
+    find_by_title 'Organizations'
+  end
+
 end
