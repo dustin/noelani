@@ -1,0 +1,2 @@
+SyslogLogger --version ">= 1.4"
+BlueCloth --version ">= 1.0.0"
