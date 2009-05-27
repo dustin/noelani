@@ -2,7 +2,7 @@ class CreateBlogPosts < ActiveRecord::Migration
   def self.up
     create_table :blog_posts do |t|
       t.string :title, :null => false
-      t.string :content, :null => false
+      t.text :content, :null => false
       t.integer :author_id, :null => false
       t.boolean :released, :default => false
       t.timestamps
